@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S&P 500 Market Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <span class="logo-mark">◈</span>
+      <div>
+        <h1>Market Explorer</h1>
+        <p class="subtitle">S&amp;P 500 Interactive Analysis · 2014–2024</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="stat-pill" id="stat-companies">— companies</div>
+      <div class="stat-pill" id="stat-sectors">— sectors</div>
+      <div class="stat-pill" id="stat-range">— index range</div>
+    </div>
+  </header>
+
+  <!-- MAIN GRID -->
+  <main class="charts-grid">
+
+    <!-- CHART 1: S&P 500 Index Line Chart (full width) -->
+    <div class="card card-wide">
+      <div class="card-header">
+        <div class="card-header-top">
+          <div>
+            <h2>S&amp;P 500 Index · Price History</h2>
+            <p class="card-desc">Daily closing value 2014–2024 · Hover for details</p>
+          </div>
+          <div class="range-buttons" id="range-buttons">
+            <button class="range-btn" data-years="1">1Y</button>
+            <button class="range-btn" data-years="3">3Y</button>
+            <button class="range-btn" data-years="5">5Y</button>
+            <button class="range-btn active" data-years="all">All</button>
+          </div>
+        </div>
+      </div>
+      <div id="line-chart"></div>
+    </div>
+
+    <!-- CHART 2: Sector Bar Chart -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Companies by Sector</h2>
+        <p class="card-desc">Count &amp; avg market cap · Click to filter scatter plot</p>
+      </div>
+      <div id="sector-chart"></div>
+    </div>
+
+    <!-- CHART 3: Scatter Plot -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-top">
+          <div>
+            <h2>Revenue Growth vs. Current Price</h2>
+            <p class="card-desc">Bubble = market cap · Color = sector · Hover for ticker</p>
+          </div>
+          <select id="scatter-sector-filter">
+            <option value="all">All Sectors</option>
+          </select>
+        </div>
+      </div>
+      <div id="scatter-chart"></div>
+      <div id="scatter-legend" class="legend"></div>
+    </div>
+
+    <!-- CHART 4: Top N by Market Cap horizontal bar -->
+    <div class="card card-wide">
+      <div class="card-header">
+        <div class="card-header-top">
+          <div>
+            <h2>Top Companies by Market Cap</h2>
+            <p class="card-desc">Largest S&amp;P 500 constituents · Colored by sector</p>
+          </div>
+          <select id="top-n-select">
+            <option value="10">Top 10</option>
+            <option value="15" selected>Top 15</option>
+            <option value="20">Top 20</option>
+          </select>
+        </div>
+      </div>
+      <div id="marketcap-chart"></div>
+    </div>
+
+  </main>
+
+  <!-- TOOLTIP -->
+  <div id="tooltip" class="tooltip"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

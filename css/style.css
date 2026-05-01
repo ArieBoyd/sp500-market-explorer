@@ -1,0 +1,280 @@
+/* =========================================
+   S&P 500 Market Explorer — style.css
+   Theme: Dark terminal / trading desk
+   ========================================= */
+
+:root {
+  --bg:         #0a0d12;
+  --bg-card:    #0f1318;
+  --bg-card2:   #141920;
+  --border:     #1e2530;
+  --border-hi:  #2e3a48;
+  --text:       #c8d6e5;
+  --text-dim:   #5a6a7a;
+  --text-hi:    #eaf2fb;
+  --accent:     #00d4aa;
+  --accent2:    #0090ff;
+  --warn:       #ff6b6b;
+  --gold:       #f0b429;
+
+  --radius:     8px;
+  --radius-lg:  14px;
+  --font-head:  'Syne', sans-serif;
+  --font-mono:  'DM Mono', monospace;
+
+  /* 11 sector colors */
+  --c-tech:     #00d4aa;
+  --c-ind:      #0090ff;
+  --c-fin:      #f0b429;
+  --c-health:   #a78bfa;
+  --c-cc:       #fb923c;
+  --c-cd:       #34d399;
+  --c-util:     #60a5fa;
+  --c-re:       #f472b6;
+  --c-cs:       #facc15;
+  --c-energy:   #ff6b6b;
+  --c-mat:      #a3e635;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* ---- HEADER ---- */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-card);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-mark {
+  font-size: 28px;
+  color: var(--accent);
+  line-height: 1;
+}
+
+header h1 {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-hi);
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: var(--text-dim);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.header-right {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.stat-pill {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ---- GRID ---- */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 20px 32px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  overflow: hidden;
+}
+
+.card-wide { grid-column: span 2; }
+
+/* ---- CARD HEADER ---- */
+.card-header { margin-bottom: 18px; }
+
+.card-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-header h2 {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-hi);
+  letter-spacing: -0.3px;
+}
+
+.card-desc {
+  color: var(--text-dim);
+  font-size: 11px;
+  margin-top: 3px;
+  letter-spacing: 0.04em;
+}
+
+/* ---- RANGE BUTTONS ---- */
+.range-buttons {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.range-btn {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-dim);
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.05em;
+}
+
+.range-btn:hover { border-color: var(--border-hi); color: var(--text); }
+
+.range-btn.active {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---- SELECT ---- */
+select {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  padding: 5px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  flex-shrink: 0;
+}
+select:focus { border-color: var(--accent2); }
+select option { background: var(--bg-card2); }
+
+/* ---- SVG / D3 ---- */
+svg { display: block; }
+
+.axis path, .axis line { stroke: var(--border-hi); }
+
+.axis text {
+  fill: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.grid line {
+  stroke: var(--border);
+  stroke-dasharray: 3 4;
+}
+.grid path { stroke: none; }
+
+/* ---- LEGEND ---- */
+.legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.legend-item:hover { color: var(--text); }
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ---- TOOLTIP ---- */
+.tooltip {
+  position: fixed;
+  background: var(--bg-card2);
+  border: 1px solid var(--border-hi);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  z-index: 999;
+  max-width: 220px;
+  line-height: 1.7;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+.tooltip.visible { opacity: 1; }
+.tooltip strong {
+  color: var(--accent);
+  display: block;
+  margin-bottom: 2px;
+  font-size: 13px;
+}
+
+/* ---- HIGHLIGHTED BAR ---- */
+.bar-highlighted { opacity: 1 !important; }
+
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-hi); border-radius: 3px; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  .charts-grid { grid-template-columns: 1fr; }
+  .card-wide { grid-column: span 1; }
+  header, .charts-grid { padding-left: 16px; padding-right: 16px; }
+  .header-right { display: none; }
+}
