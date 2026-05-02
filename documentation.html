@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Documentation — S&P 500 Market Explorer</title>
+  <title>Documentation,S&P 500 Market Explorer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
@@ -645,13 +645,13 @@
       <div class="timeline-item">
         <div class="timeline-step">Phase 2</div>
         <h4>Sketching Initial Layouts</h4>
-        <p>Initial sketches explored several layout approaches. An early idea was a single large treemap showing all 502 companies by market cap. While visually striking, it made comparison across sectors difficult. A second sketch explored a dashboard grid with smaller coordinated views — this became the final direction because it allowed multiple questions to be answered simultaneously without overwhelming the user.</p>
+        <p>Initial sketches explored several layout approaches. An early idea was a single large treemap showing all 502 companies by market cap. While visually striking, it made comparison across sectors difficult. A second sketch explored a dashboard grid with smaller coordinated views,this became the final direction because it allowed multiple questions to be answered simultaneously without overwhelming the user.</p>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-step">Phase 3</div>
         <h4>Iterative Coding &amp; Refinement</h4>
-        <p>Once the grid layout was chosen, each chart was built and tested independently. The scatter plot went through two iterations — the first used a log scale for price which compressed the data too much. Switching to a linear scale with outlier filtering (removing prices above $2,000) produced a much more readable result. The sector bar chart was originally vertical but was changed to horizontal to accommodate the long sector names without rotation.</p>
+        <p>Once the grid layout was chosen, each chart was built and tested independently. The scatter plot went through two iterations,the first used a log scale for price which compressed the data too much. Switching to a linear scale with outlier filtering (removing prices above $2,000) produced a much more readable result. The sector bar chart was originally vertical but was changed to horizontal to accommodate the long sector names without rotation.</p>
       </div>
 
       <div class="timeline-item">
@@ -667,11 +667,11 @@
     <div class="sketch-grid">
       <div class="screenshot-box">
         <img src="img/sketch1.png" alt="Initial treemap concept sketch" style="width:100%;display:block;">
-        <div class="screenshot-caption">Sketch 1 — Initial treemap concept · Rejected due to difficulty comparing sectors</div>
+        <div class="screenshot-caption">Sketch 1,Initial treemap concept · Rejected due to difficulty comparing sectors</div>
       </div>
       <div class="screenshot-box">
         <img src="img/sketch2.png" alt="Dashboard grid layout sketch" style="width:100%;display:block;">
-        <div class="screenshot-caption">Sketch 2 — Dashboard grid layout · Chosen approach with 4 coordinated views</div>
+        <div class="screenshot-caption">Sketch 2,Dashboard grid layout · Chosen approach with 4 coordinated views</div>
       </div>
     </div>
   </div>
@@ -688,13 +688,13 @@
       <div class="rationale-card">
         <span class="card-icon">🎨</span>
         <h4>Color Encodes Sector</h4>
-        <p>Each of the 11 sectors is assigned a distinct hue from a carefully chosen palette. Color is used exclusively for sector membership — never for any other variable — so the encoding is unambiguous. The dark background maximizes color contrast, making sector membership immediately legible even in the dense scatter plot.</p>
+        <p>Each of the 11 sectors is assigned a distinct hue from a carefully chosen palette. Color is used exclusively for sector membership,never for any other variable,so the encoding is unambiguous. The dark background maximizes color contrast, making sector membership immediately legible even in the dense scatter plot.</p>
       </div>
 
       <div class="rationale-card">
         <span class="card-icon">●</span>
         <h4>Bubble Size = Market Cap</h4>
-        <p>In the scatter plot, bubble radius is encoded using a square-root scale (d3.scaleSqrt) so that the visual <em>area</em> of each bubble is proportional to market cap — not the radius. This prevents large-cap companies like AAPL from appearing disproportionately large and distorting the comparison.</p>
+        <p>In the scatter plot, bubble radius is encoded using a square-root scale (d3.scaleSqrt) so that the visual <em>area</em> of each bubble is proportional to market cap,not the radius. This prevents large-cap companies like AAPL from appearing disproportionately large and distorting the comparison.</p>
       </div>
 
       <div class="rationale-card">
@@ -706,7 +706,7 @@
       <div class="rationale-card">
         <span class="card-icon">↔</span>
         <h4>Horizontal Bar Chart for Sectors</h4>
-        <p>A horizontal layout was chosen for the sector chart because sector names are long strings that would require rotation in a vertical bar chart — a known readability issue. Horizontal bars allow labels to be read naturally left-to-right, and bars are sorted by count (descending) to support rapid comparison.</p>
+        <p>A horizontal layout was chosen for the sector chart because sector names are long strings that would require rotation in a vertical bar chart,a known readability issue. Horizontal bars allow labels to be read naturally left-to-right, and bars are sorted by count (descending) to support rapid comparison.</p>
       </div>
 
       <div class="rationale-card">
@@ -718,13 +718,13 @@
       <div class="rationale-card">
         <span class="card-icon">🔗</span>
         <h4>Linked / Coordinated Views</h4>
-        <p>The sector bar and scatter plot are linked: clicking a sector bar filters the scatter plot to that sector. This cross-filtering interaction reduces cognitive load — instead of asking users to mentally track sector membership across two separate charts, they can highlight one sector and instantly see how its companies cluster on the revenue growth vs. price axes.</p>
+        <p>The sector bar and scatter plot are linked: clicking a sector bar filters the scatter plot to that sector. This cross-filtering interaction reduces cognitive load,instead of asking users to mentally track sector membership across two separate charts, they can highlight one sector and instantly see how its companies cluster on the revenue growth vs. price axes.</p>
       </div>
 
       <div class="rationale-card">
         <span class="card-icon">⚡</span>
         <h4>Animated Transitions</h4>
-        <p>All bars animate on load using d3.transition() with an ease-cubic-out curve. The line chart uses the stroke-dashoffset animation technique to draw the path from left to right. These animations are not decorative — they guide the user's eye to newly rendered data and signal that the chart has updated in response to an interaction.</p>
+        <p>All bars animate on load using d3.transition() with an ease-cubic-out curve. The line chart uses the stroke-dashoffset animation technique to draw the path from left to right. These animations are not decorative,they guide the user's eye to newly rendered data and signal that the chart has updated in response to an interaction.</p>
       </div>
 
       <div class="rationale-card">
@@ -747,18 +747,18 @@
     <div class="finding-block">
       <div class="finding-num">Finding 01</div>
       <h4>The COVID-19 crash of March 2020 is the most dramatic single event in 10 years of S&amp;P 500 history</h4>
-      <p>Using the line chart with the "All" time range selected, the index drop from ~$3,380 to ~$2,305 in just 23 trading days in February–March 2020 is visually unmistakable — a near-vertical drop followed by one of the fastest recoveries in market history, reaching new all-time highs by August 2020.</p>
+      <p>Using the line chart with the "All" time range selected, the index drop from ~$3,380 to ~$2,305 in just 23 trading days in February–March 2020 is visually unmistakable,a near-vertical drop followed by one of the fastest recoveries in market history, reaching new all-time highs by August 2020.</p>
     </div>
 
     <div class="screenshot-box">
       <img src="img/finding1.png" alt="S&P 500 line chart showing COVID crash on March 22, 2020 at $2,237.40">
-      <div class="screenshot-caption">S&P 500 Index line chart · Crosshair on March 22, 2020 · Close: $2,237.40 — the index bottom of the COVID crash</div>
+      <div class="screenshot-caption">S&P 500 Index line chart · Crosshair on March 22, 2020 · Close: $2,237.40,the index bottom of the COVID crash</div>
     </div>
 
     <!-- FINDING 2 -->
     <div class="finding-block">
       <div class="finding-num">Finding 02</div>
-      <h4>Technology dominates the S&amp;P 500 with 82 companies — nearly 4× more than Energy or Basic Materials</h4>
+      <h4>Technology dominates the S&amp;P 500 with 82 companies,nearly 4× more than Energy or Basic Materials</h4>
       <p>The sector bar chart makes this imbalance immediately visible. Technology (82), Industrials (70), and Financial Services (67) together account for nearly half of all 502 index constituents. Energy and Basic Materials each have only 22 companies despite representing critical sectors of the real economy, suggesting the index heavily favors growth-oriented sectors.</p>
     </div>
 
@@ -770,8 +770,8 @@
     <!-- FINDING 3 -->
     <div class="finding-block">
       <div class="finding-num">Finding 03</div>
-      <h4>High revenue growth does not reliably predict high stock price — but extreme outliers cluster in Technology</h4>
-      <p>Filtering the scatter plot to Technology sector reveals a cluster of high-growth, high-price companies (NVDA, AAPL, MSFT) but also shows many technology companies with moderate growth and low prices. The large bubble sizes in this cluster confirm that market cap — not growth rate alone — is what separates mega-caps from the rest of the sector.</p>
+      <h4>High revenue growth does not reliably predict high stock price,but extreme outliers cluster in Technology</h4>
+      <p>Filtering the scatter plot to Technology sector reveals a cluster of high-growth, high-price companies (NVDA, AAPL, MSFT) but also shows many technology companies with moderate growth and low prices. The large bubble sizes in this cluster confirm that market cap,not growth rate alone,is what separates mega-caps from the rest of the sector.</p>
     </div>
 
     <div class="screenshot-box">
@@ -783,7 +783,7 @@
     <div class="finding-block">
       <div class="finding-num">Finding 04</div>
       <h4>AAPL, NVDA, and MSFT together represent a market cap larger than most entire sectors combined</h4>
-      <p>The Top 15 Market Cap chart makes this striking fact concrete: AAPL alone at $3.8T exceeds the combined market cap of all 22 Energy companies in the index. The top 3 Technology companies (AAPL, NVDA, MSFT) represent approximately $10.3T in market cap — dwarfing sectors like Real Estate, Utilities, and Basic Materials entirely.</p>
+      <p>The Top 15 Market Cap chart makes this striking fact concrete: AAPL alone at $3.8T exceeds the combined market cap of all 22 Energy companies in the index. The top 3 Technology companies (AAPL, NVDA, MSFT) represent approximately $10.3T in market cap,dwarfing sectors like Real Estate, Utilities, and Basic Materials entirely.</p>
     </div>
 
     <div class="screenshot-box">
@@ -798,7 +798,7 @@
     <div class="section-tag">04 · Dataset</div>
     <h3>Data Sources &amp; Attributes</h3>
 
-    <p>This project uses two CSV files from the <strong style="color:#eaf2fb;">S&amp;P 500 Stocks (Daily Updated)</strong> dataset published on Kaggle by Andrew Mvd. Together they provide 9 attributes across two files — within the required 5–10 attribute range.</p>
+    <p>This project uses two CSV files from the <strong style="color:#eaf2fb;">S&amp;P 500 Stocks (Daily Updated)</strong> dataset published on Kaggle by Andrew Mvd. Together they provide 9 attributes across two files,within the required 5–10 attribute range.</p>
 
     <table class="attr-table">
       <thead>
@@ -867,7 +867,7 @@
       </tbody>
     </table>
 
-    <p>The dataset was sourced from <a href="https://www.kaggle.com/datasets/andrewmvd/sp-500-stocks" style="color:var(--accent);" target="_blank">kaggle.com/datasets/andrewmvd/sp-500-stocks</a>. No external cleaning scripts were used — all data parsing and filtering was handled in-browser using D3's built-in CSV loader with row accessor functions.</p>
+    <p>The dataset was sourced from <a href="https://www.kaggle.com/datasets/andrewmvd/sp-500-stocks" style="color:var(--accent);" target="_blank">kaggle.com/datasets/andrewmvd/sp-500-stocks</a>. No external cleaning scripts were used,all data parsing and filtering was handled in-browser using D3's built-in CSV loader with row accessor functions.</p>
   </div>
 
   <!-- CTA -->
